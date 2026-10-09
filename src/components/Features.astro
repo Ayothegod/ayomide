@@ -1,0 +1,24 @@
+---
+import { Terminal, GitBranch, ShieldCheck } from "lucide-astro";
+import Reveal from "./react/Reveal";
+
+const items = [
+  { icon: Terminal, title: "CLI Validation", body: "Catch broken configs before they leave your terminal." },
+  { icon: GitBranch, title: "CI/CD Integration", body: "Automatically block PRs with invalid AI-generated snippets." },
+  { icon: ShieldCheck, title: "SDK & Config Focus", body: "Specialized parsing for complex YAML, JSON, and SDK examples." },
+];
+---
+<section id="features" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-24">
+  <h2 class="text-center font-mono text-3xl font-bold tracking-tight sm:text-4xl">Built for the AI era</h2>
+  <div class="mt-12 grid gap-4 md:grid-cols-3">
+    {items.map(({ icon: Icon, title, body }, i) => (
+      <Reveal client:visible delay={i * 0.08} className="h-full">
+        <div class="h-full rounded-md border border-zinc-800 bg-zinc-950 p-6 transition duration-200 hover:border-zinc-600 hover:bg-zinc-900/60">
+          <span class="grid size-10 place-items-center rounded-sm border border-zinc-800 text-white"><Icon size={18} /></span>
+          <h3 class="mt-5 font-mono text-lg font-semibold">{title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+        </div>
+      </Reveal>
+    ))}
+  </div>
+</section>

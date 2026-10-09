@@ -1,0 +1,45 @@
+---
+import Ticker from "./react/Ticker";
+import Reveal from "./react/Reveal";
+import { buttonVariants } from "@/components/ui/button";
+import { Asterisk, Hexagon, Route, Code, Github, ArrowRight } from "lucide-astro";
+
+// Stand-in icons — swap for official brand SVGs in /public if you have them.
+const stack = [
+  { name: "Claude", icon: Asterisk },
+  { name: "OpenAI", icon: Hexagon },
+  { name: "OpenRouter", icon: Route },
+  { name: "VS Code", icon: Code },
+  { name: "GitHub", icon: Github },
+];
+---
+<section class="relative overflow-hidden px-4 pb-20 pt-40 text-center">
+  <div class="grid-bg absolute inset-0 -z-10"></div>
+  <div class="absolute left-1/2 top-0 -z-10 h-[480px] w-[820px] max-w-full -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.09),transparent_70%)]"></div>
+
+  <Reveal client:load>
+    <span class="inline-flex items-center gap-2 rounded-sm border border-zinc-800 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">
+      <span class="size-1.5 rounded-full bg-white"></span> v1.0 is live
+    </span>
+    <h1 class="mx-auto mt-8 max-w-3xl font-mono text-4xl font-bold leading-[1.15] tracking-tight sm:text-6xl">
+      The missing QA layer <span class="text-zinc-600">for AI coding agents.</span>
+    </h1>
+    <p class="mx-auto mt-8 max-w-[600px] font-mono text-sm leading-relaxed text-zinc-400 sm:text-base">
+      AI agents write code. Coldmetal verifies it works before you ship. Validate AI-generated examples, configs, and SDK snippets — from CLI or CI.
+    </p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a href="#pricing" class={buttonVariants({ size: "lg" })}>Get Started Free</a>
+      <a href="#" class={buttonVariants({ variant: "outline", size: "lg" })}>Dashboard <ArrowRight size={14} /></a>
+    </div>
+  </Reveal>
+
+  <div class="mt-24"><Ticker client:visible /></div>
+  <div class="mx-auto mt-6 h-px max-w-2xl bg-zinc-900"></div>
+
+  <p class="mt-16 font-mono text-[11px] tracking-[0.2em] text-zinc-600">WORKS WITH YOUR STACK</p>
+  <ul class="mx-auto mt-6 flex max-w-3xl flex-wrap items-center justify-center gap-x-10 gap-y-4 font-mono text-sm text-zinc-500">
+    {stack.map(({ name, icon: Icon }) => (
+      <li class="flex items-center gap-2 grayscale transition hover:text-white"><Icon size={18} />{name}</li>
+    ))}
+  </ul>
+</section>

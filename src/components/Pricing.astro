@@ -1,0 +1,30 @@
+---
+import { Check } from "lucide-astro";
+import Reveal from "./react/Reveal";
+import { buttonVariants } from "@/components/ui/button";
+
+const tiers = [
+  { name: "Free", price: "$0", unit: "/mo", desc: "For individual developers.", cta: "Get Started Free", features: ["CLI validation", "Unlimited local runs", "Community support"] },
+  { name: "Pro", price: "$20", unit: "/mo", desc: "For growing teams.", cta: "Start Pro", popular: true, features: ["Everything in Free", "CI/CD integration", "PR blocking & reports"] },
+  { name: "Enterprise", price: "Custom", unit: "", desc: "For large organizations with custom CI requirements.", cta: "Contact Sales", features: ["Everything in Pro", "SSO & audit logs", "Dedicated support"] },
+];
+---
+<section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-24">
+  <h2 class="text-center font-mono text-3xl font-bold tracking-tight sm:text-4xl">Pricing</h2>
+  <div class="mt-12 grid gap-4 md:grid-cols-3">
+    {tiers.map((t, i) => (
+      <Reveal client:visible delay={i * 0.08} className="h-full">
+        <div class:list={["relative flex h-full flex-col rounded-md border bg-zinc-950 p-6 transition duration-200", t.popular ? "border-white/40 shadow-[0_0_48px_-12px_rgba(255,255,255,0.3)]" : "border-zinc-800 hover:border-zinc-600"]}>
+          {t.popular && <span class="absolute -top-3 left-6 rounded-sm bg-white px-2 py-0.5 font-mono text-xs font-medium text-black">Popular</span>}
+          <h3 class="font-mono text-lg font-semibold">{t.name}</h3>
+          <p class="mt-4 font-mono text-4xl font-bold">{t.price}<span class="text-base font-normal text-zinc-500">{t.unit}</span></p>
+          <p class="mt-2 text-sm text-zinc-400">{t.desc}</p>
+          <ul class="mt-6 flex-1 space-y-3 text-sm text-zinc-300">
+            {t.features.map((f) => <li class="flex items-center gap-2"><Check size={14} class="text-zinc-500" />{f}</li>)}
+          </ul>
+          <a href="#" class={buttonVariants({ variant: t.popular ? "default" : "outline", class: "mt-8 w-full" })}>{t.cta}</a>
+        </div>
+      </Reveal>
+    ))}
+  </div>
+</section>

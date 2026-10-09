@@ -1,0 +1,21 @@
+---
+import { Snowflake } from "lucide-astro";
+import { buttonVariants } from "@/components/ui/button";
+---
+<header class="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+  <nav class="flex w-full max-w-2xl items-center justify-between gap-2 rounded-md border border-zinc-800 bg-black/50 px-3 py-2 font-mono text-sm backdrop-blur-md">
+    <a href="/" class="flex items-center gap-2 font-bold">
+      <span class="grid size-6 place-items-center rounded-sm bg-white text-black"><Snowflake size={14} /></span>
+      Coldmetal
+    </a>
+    <div class="hidden items-center gap-6 text-zinc-400 sm:flex">
+      <a href="#features" class="transition hover:text-white">Features</a>
+      <a href="#pricing" class="transition hover:text-white">Pricing</a>
+      <a href="#how-it-works" class="hidden transition hover:text-white md:inline">Documentation</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="#" class="hidden rounded-sm border border-zinc-800 px-3 py-1.5 text-zinc-300 transition hover:border-zinc-600 hover:text-white sm:block">Sign in</a>
+      <a href="#pricing" class={buttonVariants({ size: "sm" })}>Launch Week</a>
+    </div>
+  </nav>
+</header>

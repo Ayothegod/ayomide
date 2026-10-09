@@ -1,0 +1,44 @@
+---
+import CopyCode from "./react/CopyCode";
+---
+
+<section id="how-it-works" class="mx-auto max-w-3xl scroll-mt-24 px-4 py-24">
+  <h2
+    class="text-center font-mono text-3xl font-bold tracking-tight sm:text-4xl"
+  >
+    How it works
+  </h2>
+  <ol class="mt-12 border-l border-zinc-800">
+    <li class="relative pb-12 pl-8">
+      <span
+        class="absolute -left-[13px] top-0 grid size-6 place-items-center rounded-sm border border-zinc-700 bg-black font-mono text-xs"
+        >1</span
+      >
+      <h3 class="font-mono text-lg font-semibold">Install CLI</h3>
+      <CopyCode client:visible code="npm install -g coldmetal" />
+    </li>
+    <li class="relative pb-12 pl-8">
+      <span
+        class="absolute -left-[13px] top-0 grid size-6 place-items-center rounded-sm border border-zinc-700 bg-black font-mono text-xs"
+        >2</span
+      >
+      <h3 class="font-mono text-lg font-semibold">Connect Repo</h3>
+      <p class="mt-2 text-sm text-zinc-400">
+        Link your GitHub repository in one click.
+      </p>
+    </li>
+    <li class="relative pl-8">
+      <span
+        class="absolute -left-[13px] top-0 grid size-6 place-items-center rounded-sm border border-zinc-700 bg-black font-mono text-xs"
+        >3</span
+      >
+      <h3 class="font-mono text-lg font-semibold">Validate</h3>
+      <p class="mt-2 text-sm text-zinc-400">
+        Run <code
+          class="rounded-sm border border-zinc-800 bg-zinc-950 px-1.5 py-0.5 font-mono text-zinc-200"
+          >coldmetal validate</code
+        > and ship with confidence.
+      </p>
+    </li>
+  </ol>
+</section>
